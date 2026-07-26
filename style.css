@@ -130,11 +130,28 @@ section{
 
     width:100%;
 
-    min-height:100vh;
+    min-height:auto;
 
-    padding:120px 8%;
+    padding:40px 8%;
 
     position:relative;
+
+}
+/*==========================
+        HERO
+==========================*/
+
+.hero{
+
+    min-height:70vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
 
 }
 
