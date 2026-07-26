@@ -1355,3 +1355,276 @@ padding:30px;
 }
 
 }
+
+/*==========================================
+        HERO V3
+==========================================*/
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at top,#d4af3725,transparent 40%),
+        radial-gradient(circle at bottom,#ffffff10,transparent 40%);
+    z-index:-1;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero-badge{
+    display:inline-block;
+    padding:12px 26px;
+    border-radius:50px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    color:#D4AF37;
+    margin-bottom:25px;
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+.hero h1{
+
+    font-size:80px;
+    font-family:'Cinzel',serif;
+    margin-bottom:10px;
+    letter-spacing:2px;
+
+}
+
+.hero h1 span{
+
+    color:#D4AF37;
+
+}
+
+.hero h2{
+
+    color:#d7d7d7;
+    font-weight:500;
+    letter-spacing:6px;
+    margin-bottom:25px;
+
+}
+
+.hero p{
+
+    max-width:650px;
+    margin:auto;
+    line-height:1.9;
+    color:#cfcfcf;
+    margin-bottom:45px;
+
+}
+
+.scroll-down{
+
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    animation:bounce 2s infinite;
+
+}
+
+.scroll-down i{
+
+    font-size:24px;
+    color:#D4AF37;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translate(-50%,0);
+
+}
+
+50%{
+
+transform:translate(-50%,12px);
+
+}
+
+}
+
+/*==========================================
+        JOURNEY
+==========================================*/
+
+.journey-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:30px;
+
+margin-top:60px;
+
+}
+
+.step-card{
+
+padding:35px;
+
+border-radius:28px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+text-align:center;
+
+transition:.4s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.step-card:hover{
+
+transform:translateY(-10px);
+
+border-color:#D4AF37;
+
+box-shadow:0 20px 45px rgba(212,175,55,.25);
+
+}
+
+.step-number{
+
+position:absolute;
+
+top:15px;
+
+right:20px;
+
+font-size:60px;
+
+font-weight:700;
+
+opacity:.08;
+
+color:#fff;
+
+}
+
+.step-card i{
+
+font-size:42px;
+
+color:#D4AF37;
+
+margin-bottom:20px;
+
+}
+
+.step-card h3{
+
+margin-bottom:15px;
+
+font-size:22px;
+
+}
+
+.step-card p{
+
+color:#bbb;
+
+line-height:1.8;
+
+}
+
+/*==========================================
+        TRUST
+==========================================*/
+
+.trust{
+
+padding-top:30px;
+
+}
+
+.trust-card{
+
+max-width:850px;
+
+margin:auto;
+
+padding:60px;
+
+text-align:center;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:35px;
+
+backdrop-filter:blur(25px);
+
+}
+
+.trust-card h2{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+color:#D4AF37;
+
+}
+
+.trust-card p{
+
+line-height:2;
+
+color:#d2d2d2;
+
+margin-bottom:35px;
+
+}
+
+.trust-points{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.trust-points div{
+
+padding:14px 24px;
+
+border-radius:40px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
