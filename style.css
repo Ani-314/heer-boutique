@@ -1812,3 +1812,64 @@ border-radius:20px;
 background:#FFD700;
 
 }
+
+/*==========================================
+      FLOATING WHATSAPP
+==========================================*/
+
+.floating-whatsapp{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:65px;
+
+height:65px;
+
+border-radius:50%;
+
+background:#25D366;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:30px;
+
+color:#fff;
+
+text-decoration:none;
+
+box-shadow:0 10px 30px rgba(37,211,102,.4);
+
+z-index:999;
+
+animation:whatsappPulse 2s infinite;
+
+}
+
+@keyframes whatsappPulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.12);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+}
