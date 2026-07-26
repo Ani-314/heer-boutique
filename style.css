@@ -1945,3 +1945,51 @@ min-width:180px;
     margin:20px 0;
     font-size:18px;
 }
+/* ===========================
+   MOBILE RESPONSIVE FIX
+=========================== */
+
+@media (max-width:768px){
+
+    /* Hero */
+    .hero{
+        min-height:auto;
+        padding:120px 20px 60px;
+    }
+
+    .hero h1{
+        font-size:52px;
+        line-height:1.2;
+        word-break:break-word;
+    }
+
+    .hero h2{
+        font-size:20px;
+        letter-spacing:2px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    /* Journey Cards */
+    .journey-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    /* Services */
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Review Buttons */
+    .review-buttons{
+        flex-direction:column;
+    }
+
+    .review-buttons .btn{
+        width:100%;
+    }
+
+}
