@@ -1925,3 +1925,22 @@ backdrop-filter:blur(20px);
 background:#111;
 
 }
+.review-buttons{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+margin-top:25px;
+
+}
+
+.review-buttons .btn{
+
+min-width:180px;
+
+}
