@@ -276,82 +276,96 @@
 
     <section id="review">
 
-        <div class="section-title">
+    <div class="section-title">
 
-            <span>Google Reviews</span>
+        <span>Google Reviews</span>
 
-            <h2>Share Your Experience</h2>
+        <h2>Share Your Experience</h2>
+
+    </div>
+
+    <div class="review-card">
+
+        <div class="rating-title">
+            ⭐ Overall Experience
+        </div>
+
+        <div class="star-rating">
+
+            <span class="star" data-rating="1">★</span>
+            <span class="star" data-rating="2">★</span>
+            <span class="star" data-rating="3">★</span>
+            <span class="star" data-rating="4">★</span>
+            <span class="star" data-rating="5">★</span>
 
         </div>
 
-        <div class="review-card">
+        <div class="service-title">
 
-            <div class="rating">
-
-                ★★★★★
-
-            </div>
-
-            <h3>
-
-                Thank you for visiting us ❤️
-
-            </h3>
-
-            <p>
-
-                Choose your experience below to generate a suggested review.
-
-            </p>
-
-            <div class="review-options">
-
-                <button class="option-btn">
-
-                    Buy
-
-                </button>
-
-                <button class="option-btn">
-
-                    Rent
-
-                </button>
-
-                <button class="option-btn">
-
-                    Buy Back
-
-                </button>
-
-            </div>
-
-            <textarea
-                id="reviewText"
-                placeholder="Your personalized review will appear here..."></textarea>
-
-            <div class="review-buttons">
-
-                <button id="copyReview" class="btn glass">
-
-                    Copy Review
-
-                </button>
-
-                <a href="https://g.page/r/Ca4co73CZeqKEBM/review"
-                    target="_blank"
-                    class="btn gold">
-
-                    Google Review
-
-                </a>
-
-            </div>
+            Select Your Service
 
         </div>
 
-    </section>
+        <div class="review-options">
 
+            <button class="option-btn" data-service="buy">
+
+                🛍 Buy
+
+            </button>
+
+            <button class="option-btn" data-service="rent">
+
+                👑 Rent
+
+            </button>
+
+            <button class="option-btn" data-service="buyback">
+
+                🔄 Buy Back
+
+            </button>
+
+        </div>
+
+        <textarea
+            id="reviewText"
+            placeholder="Your review suggestion will appear here..."
+            readonly></textarea>
+
+        <div class="review-buttons">
+
+            <button id="generateReview" class="btn glass">
+
+                ✨ Generate Review
+
+            </button>
+
+            <button id="copyReview" class="btn glass">
+
+                📋 Copy Review
+
+            </button>
+
+            <a href="https://g.page/r/Ca4co73CZeqKEBM/review"
+                target="_blank"
+                class="btn gold">
+
+                ⭐ Google Review
+
+            </a>
+
+        </div>
+
+        <small>
+
+            You can edit this suggested review before posting it on Google.
+
+        </small>
+
+    </div>
+
+</section>
     <!--============================
           CONTACT
     ============================-->
