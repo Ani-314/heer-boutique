@@ -1873,3 +1873,55 @@ transform:scale(1);
 
 }
 }
+/*=========================================
+      INPUTS
+=========================================*/
+
+.input-group{
+
+margin-top:30px;
+
+margin-bottom:25px;
+
+}
+
+.input-group label{
+
+display:block;
+
+margin-bottom:12px;
+
+font-weight:600;
+
+color:#D4AF37;
+
+}
+
+.input-group input,
+.input-group select{
+
+width:100%;
+
+padding:18px;
+
+border-radius:16px;
+
+border:1px solid rgba(255,255,255,.1);
+
+background:rgba(255,255,255,.05);
+
+color:#fff;
+
+font-size:16px;
+
+outline:none;
+
+backdrop-filter:blur(20px);
+
+}
+
+.input-group select option{
+
+background:#111;
+
+}
