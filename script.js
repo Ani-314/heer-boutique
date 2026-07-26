@@ -362,3 +362,69 @@ let review = serviceReviews[random];
     reviewBox.value = review;
 
 });
+// ===============================
+// COPY REVIEW
+// ===============================
+
+const copyBtn = document.getElementById("copyReview");
+
+copyBtn.addEventListener("click",()=>{
+
+    if(reviewBox.value==""){
+
+        alert("Please generate a review first.");
+
+        return;
+
+    }
+
+    navigator.clipboard.writeText(reviewBox.value);
+
+    copyBtn.innerHTML="✅ Copied";
+
+    setTimeout(()=>{
+
+        copyBtn.innerHTML="📋 Copy Review";
+
+    },2000);
+
+});
+// ===============================
+// ANOTHER REVIEW
+// ===============================
+
+const anotherBtn=document.getElementById("anotherReview");
+
+anotherBtn.addEventListener("click",()=>{
+
+    generateBtn.click();
+
+});
+// ===============================
+// GOOGLE REVIEW
+// ===============================
+
+const googleBtn=document.getElementById("googleReview");
+
+googleBtn.addEventListener("click",()=>{
+
+    if(reviewBox.value==""){
+
+        alert("Please generate your review first.");
+
+        return;
+
+    }
+
+    navigator.clipboard.writeText(reviewBox.value);
+
+    setTimeout(()=>{
+
+        window.open(
+        "https://g.page/r/Ca4co73CZeqKEBM/review",
+        "_blank");
+
+    },300);
+
+});
+
