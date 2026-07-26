@@ -1944,3 +1944,9 @@ margin-top:25px;
 min-width:180px;
 
 }
+
+.generate-btn{
+    width:100%;
+    margin:20px 0;
+    font-size:18px;
+}
