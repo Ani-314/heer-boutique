@@ -118,10 +118,8 @@ buyback:[
 
 ]
 
-}
+},
     
-
-};
 4:{
 
 buy:[
@@ -167,6 +165,145 @@ buyback:[
 ]
 
 },
+3:{
+
+buy:[
+
+"My shopping experience at HEER BOUTIQUE was good. The collection was nice and the staff was supportive.",
+
+"I found some beautiful outfits here. Overall, it was a pleasant experience.",
+
+"The boutique has a decent collection and helpful staff. Thank you for your service.",
+
+"I was satisfied with my purchase. The quality was good and the service was polite.",
+
+"A good place for ethnic wear shopping. I would visit again."
+
+],
+
+rent:[
+
+"My rental experience was good. The outfit was comfortable and the process was simple.",
+
+"The rental collection was nice and reasonably priced.",
+
+"I received the outfit on time and it looked good for my event.",
+
+"The staff was cooperative and the rental process was smooth.",
+
+"Overall, I had a good rental experience."
+
+],
+
+buyback:[
+
+"The Buy Back process was easy and transparent.",
+
+"I appreciate the professional behaviour of the staff.",
+
+"The process was completed without any issues.",
+
+"Good customer service during the Buy Back process.",
+
+"Overall, I had a satisfactory experience."
+
+]
+
+},
+
+2:{
+
+buy:[
+
+"The collection was decent, but I hope to see more variety in the future.",
+
+"The staff was polite. A few improvements in service could make the experience even better.",
+
+"My experience was average. I found a suitable outfit after some time.",
+
+"The boutique has potential and I hope to see an even larger collection next time.",
+
+"The overall experience was okay. Thank you."
+
+],
+
+rent:[
+
+"The rental process was simple, though I think more size options would be helpful.",
+
+"The outfit was good, but I hope to see more new designs in the future.",
+
+"The experience was average. Staff was polite and supportive.",
+
+"I had an okay rental experience. Some improvements could make it even better.",
+
+"Overall, a satisfactory rental experience."
+
+],
+
+buyback:[
+
+"The Buy Back process was completed successfully, though it took a little longer than expected.",
+
+"The staff was helpful and explained everything clearly.",
+
+"My experience was average, but overall satisfactory.",
+
+"I hope the Buy Back process becomes even faster in the future.",
+
+"Thank you for your assistance."
+
+]
+
+},
+
+1:{
+
+buy:[
+
+"My visit was not exactly what I expected, but the staff remained polite throughout.",
+
+"I hope to see more variety and a faster shopping experience next time.",
+
+"There is room for improvement in both collection and service.",
+
+"I appreciate the staff's efforts and hope my next visit is even better.",
+
+"I am sharing this feedback to help improve the customer experience."
+
+],
+
+rent:[
+
+"My rental experience could have been smoother, but the staff tried their best to help.",
+
+"I hope to see even more outfit choices in the future.",
+
+"There is room to improve the rental process.",
+
+"I appreciate the polite behaviour of the team.",
+
+"I hope my next experience will be better."
+
+],
+
+buyback:[
+
+"The Buy Back process could be improved to make it faster.",
+
+"I appreciate the team's support during the process.",
+
+"I hope the Buy Back experience becomes even more convenient.",
+
+"The staff was polite and respectful throughout.",
+
+"This feedback is shared with the hope of helping improve the service."
+
+]
+
+},
+};
+
 
 generateBtn.addEventListener("click",()=>{
 
@@ -186,8 +323,20 @@ generateBtn.addEventListener("click",()=>{
 
     }
 
-    const reviews = reviewDatabase[selectedRating][selectedService];
+  const serviceReviews = reviewDatabase[selectedRating]?.[selectedService];
 
+if (!serviceReviews || serviceReviews.length === 0) {
+
+    reviewBox.value =
+    "We're preparing more review suggestions for this rating. Please try another option.";
+
+    return;
+}
+
+const random = Math.floor(Math.random() * serviceReviews.length);
+
+let review = serviceReviews[random];
+    
     const random = Math.floor(Math.random()*reviews.length);
 
     let review = reviews[random];
