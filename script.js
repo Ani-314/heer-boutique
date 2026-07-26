@@ -336,10 +336,6 @@ if (!serviceReviews || serviceReviews.length === 0) {
 const random = Math.floor(Math.random() * serviceReviews.length);
 
 let review = serviceReviews[random];
-    
-    const random = Math.floor(Math.random()*reviews.length);
-
-    let review = reviews[random];
 
     if(customerName.value.trim()!=""){
 
