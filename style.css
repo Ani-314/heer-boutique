@@ -1628,3 +1628,187 @@ background:rgba(255,255,255,.06);
 border:1px solid rgba(255,255,255,.08);
 
 }
+
+/*==========================================
+      LUXURY BACKGROUND EFFECTS
+==========================================*/
+
+body::before{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    top:-180px;
+    left:-180px;
+    background:#D4AF37;
+    filter:blur(180px);
+    opacity:.12;
+    z-index:-2;
+    animation:floatGlow 10s ease-in-out infinite;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    bottom:-150px;
+    right:-150px;
+    background:#ffffff;
+    filter:blur(200px);
+    opacity:.05;
+    z-index:-2;
+    animation:floatGlow2 12s ease-in-out infinite;
+}
+
+@keyframes floatGlow{
+
+0%,100%{
+transform:translate(0,0);
+}
+
+50%{
+transform:translate(80px,50px);
+}
+
+}
+
+@keyframes floatGlow2{
+
+0%,100%{
+transform:translate(0,0);
+}
+
+50%{
+transform:translate(-80px,-60px);
+}
+
+}
+
+/*==========================================
+        BUTTON ANIMATION
+==========================================*/
+
+.btn{
+
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
+
+}
+
+.btn::before{
+
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent);
+
+    transition:.8s;
+
+}
+
+.btn:hover::before{
+
+    left:120%;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*==========================================
+      GLASS CARD ANIMATION
+==========================================*/
+
+.glass-card,
+.step-card,
+.review-card,
+.trust-card,
+.glass-panel{
+
+    transition:.45s;
+
+}
+
+.glass-card:hover,
+.step-card:hover,
+.review-card:hover,
+.trust-card:hover,
+.glass-panel:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 60px rgba(212,175,55,.18);
+
+}
+
+/*==========================================
+      SECTION ANIMATION
+==========================================*/
+
+section{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==========================================
+      CUSTOM SCROLLBAR
+==========================================*/
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#0c0c0c;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#D4AF37;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#FFD700;
+
+}
