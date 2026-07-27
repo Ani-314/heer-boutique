@@ -1,10 +1,21 @@
 // ==========================================
-// HEER BOUTIQUE V3
-// PART 3A
+// HEER BOUTIQUE V4
+// Professional Review Engine
+// ==========================================
+
+"use strict";
+
+// ==========================================
+// GLOBAL VARIABLES
 // ==========================================
 
 let selectedRating = 0;
 let selectedService = "";
+let selectedOccasion = "";
+
+// ==========================================
+// DOM ELEMENTS
+// ==========================================
 
 const stars = document.querySelectorAll(".star");
 const serviceButtons = document.querySelectorAll(".option-btn");
@@ -14,28 +25,26 @@ const occasion = document.getElementById("occasion");
 
 const reviewBox = document.getElementById("reviewText");
 
+const generateBtn = document.getElementById("generateReview");
+const copyBtn = document.getElementById("copyReview");
+const anotherBtn = document.getElementById("anotherReview");
+const googleBtn = document.getElementById("googleReview");
+
+
 
 // ----------------------------
 // STAR RATING
 // ----------------------------
 
-stars.forEach((star)=>{
+stars.forEach((star) => {
 
-    star.addEventListener("click",()=>{
+    star.addEventListener("click", () => {
 
         selectedRating = Number(star.dataset.rating);
 
-        stars.forEach((s,index)=>{
+        stars.forEach((s, index) => {
 
-            if(index < selectedRating){
-
-                s.classList.add("active");
-
-            }else{
-
-                s.classList.remove("active");
-
-            }
+            s.classList.toggle("active", index < selectedRating);
 
         });
 
@@ -48,11 +57,11 @@ stars.forEach((star)=>{
 // SERVICE
 // ----------------------------
 
-serviceButtons.forEach((button)=>{
+serviceButtons.forEach((button) => {
 
-    button.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
-        serviceButtons.forEach(btn=>btn.classList.remove("active"));
+        serviceButtons.forEach(btn => btn.classList.remove("active"));
 
         button.classList.add("active");
 
@@ -62,12 +71,14 @@ serviceButtons.forEach((button)=>{
 
 });
 
+occasion.addEventListener("change", () => {
 
-// ----------------------------
-// TEST BUTTON
-// ----------------------------
+    selectedOccasion = occasion.value;
 
-const generateBtn = document.getElementById("generateReview");
+});
+
+
+
 // ==========================================
 // 5 STAR REVIEW DATABASE
 // ==========================================
@@ -305,6 +316,36 @@ buyback:[
 };
 
 // ==========================================
+// REVIEW MEMORY (ANTI-REPEAT)
+// ==========================================
+
+const STORAGE_KEY = "heer_review_history_v4";
+
+function getHistory() {
+
+    const data = localStorage.getItem(STORAGE_KEY);
+
+    return data ? JSON.parse(data) : {
+
+        buy: [],
+        rent: [],
+        buyback: []
+
+    };
+
+}
+
+function saveHistory(history) {
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(history)
+    );
+
+}
+
+
+// ==========================================
 // LAST REVIEW MEMORY
 // ==========================================
 
@@ -449,7 +490,6 @@ const namePrefixes = [
 // COPY REVIEW
 // ===============================
 
-const copyBtn = document.getElementById("copyReview");
 
 copyBtn.addEventListener("click",()=>{
 
@@ -476,7 +516,7 @@ copyBtn.addEventListener("click",()=>{
 // ANOTHER REVIEW
 // ===============================
 
-const anotherBtn=document.getElementById("anotherReview");
+
 
 anotherBtn.addEventListener("click",()=>{
 
@@ -487,7 +527,7 @@ anotherBtn.addEventListener("click",()=>{
 // GOOGLE REVIEW
 // ===============================
 
-const googleBtn=document.getElementById("googleReview");
+
 
 googleBtn.addEventListener("click",()=>{
 
