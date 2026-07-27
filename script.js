@@ -940,6 +940,8 @@ googleBtn.addEventListener("click",()=>{
     },300);
 
 });
+    
+});
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
 
