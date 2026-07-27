@@ -478,135 +478,6 @@ function getSmartReview(service, reviews){
 
 }
 
-// ==========================================
-// LAST REVIEW MEMORY
-// ==========================================
-
-let lastReview = {
-    buy: "",
-    rent: "",
-    buyback: ""
-};
-
-generateBtn.addEventListener("click",()=>{
-
-    if(selectedRating===0){
-
-        alert("Please select your rating.");
-
-        return;
-
-    }
-
-    if(selectedService===""){
-
-        alert("Please select your service.");
-
-        return;
-
-    }
-
-  const serviceReviews = reviewDatabase[selectedRating]?.[selectedService];
-
-if (!serviceReviews || serviceReviews.length === 0) {
-
-    reviewBox.value =
-    "We're preparing more review suggestions for this rating. Please try another option.";
-
-    return;
-}
-
-
- let review = getSmartReview(
-    selectedService,
-    serviceReviews
-);
-    // ==========================================
-// OCCASION BASED SMART REVIEW
-// ==========================================
-
-if(selectedService === "rent"){
-
-    const occasionName = occasion.value;
-
-    if(occasionName){
-
-        review = review.replace(
-            "special day",
-            occasionName.toLowerCase()
-        );
-
-        review = review.replace(
-            "special occasion",
-            occasionName.toLowerCase()
-        );
-
-        review = review.replace(
-            "my event",
-            "my " + occasionName.toLowerCase()
-        );
-
-    }
-
-}
-    
-   const openings = [
-
-    "I'd like to share my wonderful experience at HEER BOUTIQUE.",
-
-    "I recently visited HEER BOUTIQUE and had a fantastic experience.",
-
-    "I'm delighted to share my experience with HEER BOUTIQUE.",
-
-    "Choosing HEER BOUTIQUE was one of my best decisions.",
-
-    "I truly enjoyed my visit to HEER BOUTIQUE."
-
-];
-
-const intro =
-nameIntroductions[Math.floor(Math.random() * nameIntroductions.length)];
-
-const selectedVisitLines =
-occasionVisitLines[occasion.value] || visitLines;
-
-const visit =
-selectedVisitLines[
-Math.floor(Math.random() * selectedVisitLines.length)
-];
-    
-
-const ending =
-endingLines[Math.floor(Math.random() * endingLines.length)];
-
-    if(customerName.value.trim() !== ""){
-
-  const introText =
-introTemplates[
-Math.floor(Math.random()*introTemplates.length)
-](customerName.value.trim());
-
-review =
-introText +
-"\n\n" +
-visit +
-"\n\n" +
-review +
-"\n\n" +
-ending;
-
-}else{
-
-    review =
-        visit +
-        "\n\n" +
-        review +
-        "\n\n" +
-        ending;
-
-}
-
-reviewBox.value = review;
     const introTemplates = [
 
 (name) => `Hi, I'm ${name}.`,
@@ -874,6 +745,137 @@ const namePrefixes = [
     "is pleased to recommend HEER BOUTIQUE."
 
 ];
+
+// ==========================================
+// LAST REVIEW MEMORY
+// ==========================================
+
+let lastReview = {
+    buy: "",
+    rent: "",
+    buyback: ""
+};
+
+generateBtn.addEventListener("click",()=>{
+
+    if(selectedRating===0){
+
+        alert("Please select your rating.");
+
+        return;
+
+    }
+
+    if(selectedService===""){
+
+        alert("Please select your service.");
+
+        return;
+
+    }
+
+  const serviceReviews = reviewDatabase[selectedRating]?.[selectedService];
+
+if (!serviceReviews || serviceReviews.length === 0) {
+
+    reviewBox.value =
+    "We're preparing more review suggestions for this rating. Please try another option.";
+
+    return;
+}
+
+
+ let review = getSmartReview(
+    selectedService,
+    serviceReviews
+);
+    // ==========================================
+// OCCASION BASED SMART REVIEW
+// ==========================================
+
+if(selectedService === "rent"){
+
+    const occasionName = occasion.value;
+
+    if(occasionName){
+
+        review = review.replace(
+            "special day",
+            occasionName.toLowerCase()
+        );
+
+        review = review.replace(
+            "special occasion",
+            occasionName.toLowerCase()
+        );
+
+        review = review.replace(
+            "my event",
+            "my " + occasionName.toLowerCase()
+        );
+
+    }
+
+}
+    
+   const openings = [
+
+    "I'd like to share my wonderful experience at HEER BOUTIQUE.",
+
+    "I recently visited HEER BOUTIQUE and had a fantastic experience.",
+
+    "I'm delighted to share my experience with HEER BOUTIQUE.",
+
+    "Choosing HEER BOUTIQUE was one of my best decisions.",
+
+    "I truly enjoyed my visit to HEER BOUTIQUE."
+
+];
+
+const intro =
+nameIntroductions[Math.floor(Math.random() * nameIntroductions.length)];
+
+const selectedVisitLines =
+occasionVisitLines[occasion.value] || visitLines;
+
+const visit =
+selectedVisitLines[
+Math.floor(Math.random() * selectedVisitLines.length)
+];
+    
+
+const ending =
+endingLines[Math.floor(Math.random() * endingLines.length)];
+
+    if(customerName.value.trim() !== ""){
+
+  const introText =
+introTemplates[
+Math.floor(Math.random()*introTemplates.length)
+](customerName.value.trim());
+
+review =
+introText +
+"\n\n" +
+visit +
+"\n\n" +
+review +
+"\n\n" +
+ending;
+
+}else{
+
+    review =
+        visit +
+        "\n\n" +
+        review +
+        "\n\n" +
+        ending;
+
+}
+
+reviewBox.value = review;
+
 // ===============================
 // COPY REVIEW
 // ===============================
