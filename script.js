@@ -304,6 +304,15 @@ buyback:[
 },
 };
 
+// ==========================================
+// LAST REVIEW MEMORY
+// ==========================================
+
+let lastReview = {
+    buy: "",
+    rent: "",
+    buyback: ""
+};
 
 generateBtn.addEventListener("click",()=>{
 
@@ -377,24 +386,19 @@ let review = serviceReviews[randomIndex];
 ];
 
 let opening = openings[Math.floor(Math.random() * openings.length)];
+let prefix = namePrefixes[Math.floor(Math.random() * namePrefixes.length)];
 
-if(customerName.value.trim() !== ""){
+    if(customerName.value.trim() !== ""){
 
     opening =
-    customerName.value +
-    " says: " +
+    customerName.value.trim() +
+    " " +
+    prefix +
+    "\n\n" +
     opening;
 
 }
 
-if(occasion.value !== ""){
-
-    opening +=
-    " I visited for my " +
-    occasion.value.toLowerCase() +
-    ".";
-
-}
 
 review =
 opening +
@@ -404,6 +408,43 @@ review;
     reviewBox.value = review;
 
 });
+// ===============================
+// NAME PREFIXES
+// ===============================
+
+const namePrefixes = [
+
+    "shared this review:",
+
+    "had this to say:",
+
+    "recommends HEER BOUTIQUE.",
+
+    "shared this experience:",
+
+    "had an amazing experience.",
+
+    "recently visited HEER BOUTIQUE.",
+
+    "loved the overall service.",
+
+    "is happy to share this review.",
+
+    "was delighted with the experience.",
+
+    "highly recommends HEER BOUTIQUE.",
+
+    "was impressed by the collection.",
+
+    "had a memorable shopping experience.",
+
+    "enjoyed every moment at HEER BOUTIQUE.",
+
+    "thanks the HEER BOUTIQUE team.",
+
+    "is pleased to recommend HEER BOUTIQUE."
+
+];
 // ===============================
 // COPY REVIEW
 // ===============================
