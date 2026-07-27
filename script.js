@@ -333,27 +333,73 @@ if (!serviceReviews || serviceReviews.length === 0) {
     return;
 }
 
-const random = Math.floor(Math.random() * serviceReviews.length);
+const storageKey =
+selectedRating + "_" + selectedService + "_" + occasion.value;
 
-let review = serviceReviews[random];
+let lastIndex =
+parseInt(localStorage.getItem(storageKey));
 
-    if(customerName.value.trim()!=""){
+if (isNaN(lastIndex)) {
 
-        review =
-        "I, " +
-        customerName.value +
-        ", would like to share my experience.\n\n" +
-        review;
+    lastIndex = -1;
 
-    }
+}
 
-    if(occasion.value!=""){
+let randomIndex;
 
-        review +=
-        "\n\nOccasion : " +
-        occasion.value;
+do {
 
-    }
+    randomIndex = Math.floor(Math.random() * serviceReviews.length);
+
+} while (
+
+    serviceReviews.length > 1 &&
+    randomIndex === lastIndex
+
+);
+
+localStorage.setItem(storageKey, randomIndex);
+
+let review = serviceReviews[randomIndex];
+
+   const openings = [
+
+    "I'd like to share my wonderful experience at HEER BOUTIQUE.",
+
+    "I recently visited HEER BOUTIQUE and had a fantastic experience.",
+
+    "I'm delighted to share my experience with HEER BOUTIQUE.",
+
+    "Choosing HEER BOUTIQUE was one of my best decisions.",
+
+    "I truly enjoyed my visit to HEER BOUTIQUE."
+
+];
+
+let opening = openings[Math.floor(Math.random() * openings.length)];
+
+if(customerName.value.trim() !== ""){
+
+    opening =
+    customerName.value +
+    " says: " +
+    opening;
+
+}
+
+if(occasion.value !== ""){
+
+    opening +=
+    " I visited for my " +
+    occasion.value.toLowerCase() +
+    ".";
+
+}
+
+review =
+opening +
+"\n\n" +
+review;
 
     reviewBox.value = review;
 
