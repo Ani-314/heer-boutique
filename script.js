@@ -202,7 +202,106 @@ rent:[
 
 "The staff was cooperative and the rental process was smooth.",
 
-"Overall, I had a good rental experience."
+"Overall, I had a good rental experience.",
+    `I rented my outfit from HEER BOUTIQUE and the quality was beyond my expectations. Everything looked fresh and premium.`,
+
+`The rental collection was outstanding and I found exactly what I wanted for my special day.`,
+
+`The outfit fitting was perfect and everyone appreciated my overall look.`,
+
+`HEER BOUTIQUE made the rental process extremely easy and hassle-free.`,
+
+`I was surprised by the quality of the rental outfit. It looked completely new.`,
+
+`The staff helped me choose the perfect outfit according to my occasion.`,
+
+`Very professional rental service with excellent customer support.`,
+
+`The collection was trendy, elegant and available at reasonable rental prices.`,
+
+`Everything from trial to final delivery was managed professionally.`,
+
+`The outfit was clean, perfectly ironed and beautifully packed.`,
+
+`I genuinely enjoyed my rental experience at HEER BOUTIQUE.`,
+
+`I received many compliments because of the beautiful outfit I rented here.`,
+
+`The rental quality was exactly like purchasing a brand new outfit.`,
+
+`HEER BOUTIQUE offers one of the finest rental collections in the city.`,
+
+`The fitting adjustments were done perfectly before delivery.`,
+
+`Very friendly staff who guided me throughout the selection process.`,
+
+`The outfit photographs looked beautiful because of the premium finishing.`,
+
+`I never expected rental outfits to be maintained this well.`,
+
+`The entire process was transparent, quick and convenient.`,
+
+`I would definitely rent from HEER BOUTIQUE again for my next function.`,
+
+`Excellent fabric quality and beautiful designer collection.`,
+
+`Every detail of the outfit looked luxurious.`,
+
+`I loved the premium finishing and elegant styling.`,
+
+`The outfit exceeded all my expectations.`,
+
+`Amazing service with affordable rental pricing.`,
+
+`The staff made the entire experience comfortable and enjoyable.`,
+
+`Perfect destination for premium ethnic wear rentals.`,
+
+`I found unique designs that were difficult to find elsewhere.`,
+
+`The outfit looked exactly as shown during selection.`,
+
+`The rental service was punctual and highly professional.`,
+
+`Everything was delivered exactly as promised.`,
+
+`The collection had plenty of options for every occasion.`,
+
+`HEER BOUTIQUE made my special day even more memorable.`,
+
+`I was impressed by the cleanliness and maintenance of every outfit.`,
+
+`The rental experience was smooth from beginning to end.`,
+
+`Very satisfied with the quality, fitting and customer service.`,
+
+`Excellent experience with premium designer rentals.`,
+
+`The staff understood my requirements and suggested the perfect outfit.`,
+
+`The overall rental experience was fantastic.`,
+
+`Highly satisfied with both the outfit and the service.`,
+
+`The outfit looked elegant, luxurious and perfectly fitted.`,
+
+`I would happily recommend HEER BOUTIQUE to my friends and family.`,
+
+`The rental collection is worth exploring for every special occasion.`,
+
+`The outfit quality and finishing were truly impressive.`,
+
+`Everything was managed professionally from booking to return.`,
+
+`A wonderful place to rent premium ethnic wear.`,
+
+`I couldn't have asked for a better rental experience.`,
+
+`The rental process was simple, fast and stress-free.`,
+
+`Outstanding customer service and beautiful designer outfits.`,
+
+`My experience with HEER BOUTIQUE was memorable and completely satisfying.`
 
 ],
 
@@ -422,6 +521,34 @@ if (!serviceReviews || serviceReviews.length === 0) {
     selectedService,
     serviceReviews
 );
+    // ==========================================
+// OCCASION BASED SMART REVIEW
+// ==========================================
+
+if(selectedService === "rent"){
+
+    const occasionName = occasion.value;
+
+    if(occasionName){
+
+        review = review.replace(
+            "special day",
+            occasionName.toLowerCase()
+        );
+
+        review = review.replace(
+            "special occasion",
+            occasionName.toLowerCase()
+        );
+
+        review = review.replace(
+            "my event",
+            "my " + occasionName.toLowerCase()
+        );
+
+    }
+
+}
     
    const openings = [
 
@@ -437,32 +564,282 @@ if (!serviceReviews || serviceReviews.length === 0) {
 
 ];
 
-let opening = openings[Math.floor(Math.random() * openings.length)];
-let prefix = namePrefixes[Math.floor(Math.random() * namePrefixes.length)];
+const intro =
+nameIntroductions[Math.floor(Math.random() * nameIntroductions.length)];
+
+const selectedVisitLines =
+occasionVisitLines[occasion.value] || visitLines;
+
+const visit =
+selectedVisitLines[
+Math.floor(Math.random() * selectedVisitLines.length)
+];
+    
+
+const ending =
+endingLines[Math.floor(Math.random() * endingLines.length)];
 
     if(customerName.value.trim() !== ""){
 
-    opening =
-    customerName.value.trim() +
-    " " +
-    prefix +
-    "\n\n" +
-    opening;
+  const introText =
+introTemplates[
+Math.floor(Math.random()*introTemplates.length)
+](customerName.value.trim());
+
+review =
+introText +
+"\n\n" +
+visit +
+"\n\n" +
+review +
+"\n\n" +
+ending;
+
+}else{
+
+    review =
+        visit +
+        "\n\n" +
+        review +
+        "\n\n" +
+        ending;
 
 }
 
+reviewBox.value = review;
+    const introTemplates = [
 
-review =
-opening +
-"\n\n" +
-review;
+(name) => `Hi, I'm ${name}.`,
 
-    reviewBox.value = review;
+(name) => `Hello, I'm ${name}.`,
 
-});
+(name) => `My name is ${name}.`,
+
+(name) => `I'm ${name}.`,
+
+(name) => `${name} here.`,
+
+(name) => `This is ${name}.`,
+
+(name) => `I'm happy to share my experience. My name is ${name}.`,
+
+(name) => `I'd like to share my experience. I'm ${name}.`,
+
+(name) => `I recently visited HEER BOUTIQUE. I'm ${name}.`,
+
+(name) => `I'm ${name}, and here's my experience.`,
+
+(name) => `Myself ${name}.`,
+
+(name) => `I'm delighted to share my experience. I'm ${name}.`,
+
+(name) => `Greetings! I'm ${name}.`,
+
+(name) => `Hey, I'm ${name}.`,
+
+(name) => `It's ${name}.`,
+
+(name) => `Allow me to introduce myself. I'm ${name}.`
+
+];
+    
 // ===============================
 // NAME PREFIXES
 // ===============================
+const nameIntroductions = [
+
+"I am",
+
+"I'm",
+
+"My name is",
+
+"This is",
+
+"Hello, I'm",
+
+"Hi, I'm",
+
+"Greetings! I'm",
+
+"Hey, I'm",
+
+"I recently visited as",
+
+"Proud customer",
+
+"I'm happy to introduce myself as",
+
+"Myself",
+
+"Allow me to introduce myself, I'm",
+
+"My name's",
+
+"It's",
+
+"I'd like to introduce myself. I'm",
+
+"I'm pleased to say I'm",
+
+"I'm delighted to share my experience. I'm",
+
+"I'm excited to share my experience. I'm",
+
+"My friends call me"
+
+];
+
+const visitLines = [
+
+"I recently visited HEER BOUTIQUE.",
+
+"I had a wonderful experience at HEER BOUTIQUE.",
+
+"I chose HEER BOUTIQUE for my special occasion.",
+
+"I was searching for premium ethnic wear.",
+
+"I wanted something unique and elegant.",
+
+"I found exactly what I was looking for.",
+
+"I heard great things about HEER BOUTIQUE.",
+
+"I decided to visit after hearing positive reviews.",
+
+"I was impressed from the moment I entered.",
+
+"My experience was truly memorable."
+
+];
+    
+const occasionVisitLines = {
+
+Wedding: [
+
+"I visited HEER BOUTIQUE for my wedding.",
+
+"I was looking for the perfect wedding outfit.",
+
+"My wedding shopping experience was amazing.",
+
+"I found my dream wedding outfit here.",
+
+"I wanted something premium for my wedding."
+
+],
+
+Reception: [
+
+"I rented my outfit for my reception.",
+
+"My reception look became perfect because of HEER BOUTIQUE.",
+
+"I chose HEER BOUTIQUE for my reception.",
+
+"I loved the reception collection.",
+
+"The reception outfit was exactly what I wanted."
+
+],
+
+Engagement: [
+
+"I selected my engagement outfit from HEER BOUTIQUE.",
+
+"My engagement look turned out amazing.",
+
+"I wanted something elegant for my engagement.",
+
+"The engagement collection was beautiful.",
+
+"I loved every minute of my shopping experience."
+
+],
+
+Haldi: [
+
+"I wanted a unique Haldi outfit.",
+
+"My Haldi look became memorable.",
+
+"I found the perfect Haldi outfit here.",
+
+"The Haldi collection was amazing.",
+
+"I really enjoyed shopping for my Haldi."
+
+],
+
+Sangeet: [
+
+"I rented my Sangeet outfit from HEER BOUTIQUE.",
+
+"My Sangeet look received many compliments.",
+
+"I loved the Sangeet collection.",
+
+"The outfit fitting was absolutely perfect.",
+
+"My Sangeet shopping experience was wonderful."
+
+],
+
+Festival: [
+
+"I wanted something special for the festival.",
+
+"I found a beautiful festive outfit.",
+
+"The festive collection was amazing.",
+
+"I absolutely loved their festival collection.",
+
+"My shopping experience was fantastic."
+
+],
+
+Party: [
+
+"I needed a stylish outfit for a party.",
+
+"I found exactly what I wanted.",
+
+"The party wear collection was impressive.",
+
+"My party look became memorable.",
+
+"I loved the overall experience."
+
+]
+
+};
+    
+const endingLines = [
+
+"Highly recommended!",
+
+"Definitely worth visiting.",
+
+"I'll surely visit again.",
+
+"Thank you HEER BOUTIQUE.",
+
+"Five stars from me.",
+
+"A wonderful experience overall.",
+
+"Keep up the great work.",
+
+"Best wishes to the entire team.",
+
+"I'll recommend it to my family and friends.",
+
+"Looking forward to my next visit."
+
+];
+
 
 const namePrefixes = [
 
