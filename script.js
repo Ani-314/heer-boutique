@@ -344,6 +344,40 @@ function saveHistory(history) {
 
 }
 
+function getSmartReview(service, reviews){
+
+    let history = getHistory();
+
+    let usedReviews = history[service] || [];
+
+    let available = reviews.filter(r => !usedReviews.includes(r));
+
+    if(available.length === 0){
+
+        usedReviews = [];
+
+        available = [...reviews];
+
+    }
+
+    const randomReview =
+    available[Math.floor(Math.random()*available.length)];
+
+    usedReviews.push(randomReview);
+
+    if(usedReviews.length > 25){
+
+        usedReviews.shift();
+
+    }
+
+    history[service] = usedReviews;
+
+    saveHistory(history);
+
+    return randomReview;
+
+}
 
 // ==========================================
 // LAST REVIEW MEMORY
@@ -383,35 +417,12 @@ if (!serviceReviews || serviceReviews.length === 0) {
     return;
 }
 
-const storageKey =
-selectedRating + "_" + selectedService + "_" + occasion.value;
 
-let lastIndex =
-parseInt(localStorage.getItem(storageKey));
-
-if (isNaN(lastIndex)) {
-
-    lastIndex = -1;
-
-}
-
-let randomIndex;
-
-do {
-
-    randomIndex = Math.floor(Math.random() * serviceReviews.length);
-
-} while (
-
-    serviceReviews.length > 1 &&
-    randomIndex === lastIndex
-
+ let review = getSmartReview(
+    selectedService,
+    serviceReviews
 );
-
-localStorage.setItem(storageKey, randomIndex);
-
-let review = serviceReviews[randomIndex];
-
+    
    const openings = [
 
     "I'd like to share my wonderful experience at HEER BOUTIQUE.",
